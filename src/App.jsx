@@ -23,12 +23,18 @@ function App() {
   async function countingStroks() {
     if (!containsOnlyChineseCharacters(inputState)){
       setErrMsgState("should only contain Chinese character")
-      return
+      setCurHexagramState([])
+      setStrokeState([0, 0])
+      return;
     }
 
-    if (inputState === 1) {
+    if (inputState.length === 1) {
       setErrMsgState("Please enter at least two character")
+      setCurHexagramState([])
+      setStrokeState([0, 0])
+      return;
     }
+
     let sum = 0
     let sum1 = 0
 
